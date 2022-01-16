@@ -1,10 +1,7 @@
-
-
 export const ProductDetail = () => {
-
-  return(
-
-    
-  )
-
-}
+  return (
+    <div>
+      <h1>ProductDetail</h1>
+    </div>
+  );
+};
