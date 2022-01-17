@@ -2,7 +2,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { Header } from "./components/Header";
 import { ProductListing } from "./components/ProductListing";
-import { ProductDetail } from "./components/ProductDetail";
+import { ProductDetails } from "./components/ProductDetail";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<ProductListing />} />
-        <Route path="/product/:productId" element={<ProductDetail />} />
+        <Route path="/product/:productId" element={<ProductDetails />} />
       </Routes>
     </div>
   );
