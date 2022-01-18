@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import {
+  fetchProduct,
   selectedProduct,
   removeSelectedProduct,
 } from "../redux/actions/productActions";
@@ -13,16 +14,26 @@ export const ProductDetails = () => {
   const { productId } = useParams();
   const dispatch = useDispatch();
 
-  const fetchProductDetail = async () => {
-    const response = await axios
-      .get(`https://fakestoreapi.com/products/${productId}`)
-      .catch((err) => {
-        console.log("Err ", err);
-      });
-    dispatch(selectedProduct(response.data));
-  };
+  // commented out due to the use of redux-thunk
+
+  // const fetchProductDetail = async () => {
+  //   const response = await axios
+  //     .get(`https://fakestoreapi.com/products/${productId}`)
+  //     .catch((err) => {
+  //       console.log("Err ", err);
+  //     });
+  //   dispatch(selectedProduct(response.data));
+  // };
+
+  // useEffect(() => {
+  //   if (productId && productId !== "") fetchProductDetail();
+  //   return () => {
+  //     dispatch(removeSelectedProduct());
+  //   };
+  // }, [productId]);
+
   useEffect(() => {
-    if (productId && productId !== "") fetchProductDetail();
+    if (productId && productId !== "") dispatch(fetchProduct(productId));
     return () => {
       dispatch(removeSelectedProduct());
     };

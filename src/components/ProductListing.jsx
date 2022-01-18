@@ -7,6 +7,8 @@ import { setProducts, fetchProducts } from "../redux/actions/productActions";
 export const ProductListing = () => {
   const dispatch = useDispatch();
 
+  // commented out due to the use of redux-thunk
+
   // const fetchProducts = async () => {
   //   const response = await axios
   //     .get("https://fakestoreapi.com/products")
